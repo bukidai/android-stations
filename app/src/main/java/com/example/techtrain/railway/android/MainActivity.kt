@@ -1,25 +1,26 @@
 package com.example.techtrain.railway.android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.techtrain.railway.android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var _binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(_binding.root)
 
-        val button = findViewById<View>(R.id.btShow)
+        val button = _binding.btShow
         button.setOnClickListener(ButtonClickListener())
     }
 
     inner class ButtonClickListener : View.OnClickListener {
         override fun onClick(v: View) {
-            val editText = findViewById<EditText>(R.id.editTextText)
-            val textView = findViewById<TextView>(R.id.text)
-            textView.text = editText.text.toString()
+            val intent = Intent(this@MainActivity, SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 }
