@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Railway</string>
     <string name="text">こんにちは</string>
+    <string name="bt_show">表示</string>
 </resources>
